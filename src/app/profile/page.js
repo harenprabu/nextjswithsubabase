@@ -6,7 +6,8 @@ import React from 'react';
 
 import SignOut from 'src/components/SignOut';
 import Navbar from 'src/components/navbar';
-import TEST from 'src/components/testhome';
+// import TEST from 'src/components/testhome';
+import PROFILE from './profile_from';
 
 export default async function Profile() {
   const supabase = createServerComponentClient({ cookies });
@@ -19,7 +20,11 @@ export default async function Profile() {
     redirect('/sign-in');
   }
 
- 
+  // let { data:profile } = await supabase
+  // .from('profiles')
+  // .select('first_name,last_name,phone_number')
+  // .eq('id', user.id)
+  // .single()
 
 
   return (
@@ -27,21 +32,12 @@ export default async function Profile() {
     <Navbar/>
     
     <div className="card">
-  <TEST/>
-      <h2>User Profile</h2>
-      <code className="highlight">{user.email}</code>
-      <div className="heading">Last Signed In:</div>
-      <code className="highlight">{new Date(user.last_sign_in_at).toUTCString()}</code>
-      <Link className="button" href="/">
-        Go Home
-      </Link>
-      <Link className="button" href="/dashborad">
-        dashborad
-      </Link>
-  
-      <SignOut />
-      </div>
-      </div>
+  <h2>User profile</h2>
+      
+ <PROFILE session={user} />
+ </div>
+ 
+ </div>
 
   );
  }

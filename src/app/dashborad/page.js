@@ -2,13 +2,13 @@ import React from 'react';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { cookies } from 'next/headers';
 
-import Link from 'next/link';
+// import Link from 'next/link';
 import { redirect } from 'next/navigation';
 
 
  import CARDS from 'src/components/dashcards';
 import Navbar from 'src/components/navbar';
- import TEST from 'src/components/testhome';
+//  import TEST from 'src/components/testhome';
 
 export default async function Profile() {
   const supabase = createServerComponentClient({ cookies });
